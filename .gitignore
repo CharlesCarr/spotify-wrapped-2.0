@@ -1,0 +1,35 @@
+# Environment variables
+.env
+
+# Virtual Environment
+venv/
+env/
+ENV/
+
+# Python cache files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Spotify cache
+.cache
+.cache-*
+
+# Database
+*.db
+*.db-journal
+
+# IDE specific files
+.idea/
+.vscode/
+*.swp
+*.swo
+.DS_Store
+
+# Distribution / packaging
+dist/
+build/
+*.egg-info/
+
+# Logs
+*.log
