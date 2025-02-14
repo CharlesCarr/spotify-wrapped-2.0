@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+    <key>Label</key>
+    <string>com.yourapp.scheduler</string>
+    <key>ProgramArguments</key>
+    <array>
+        <string>/Users/charliecarr/Desktop/DEV_PROJECTS/spotify-wrapped-2.0/venv/bin/python3</string>
+        <string>YOUR_SCRIPT_PATH_HERE</string>
+    </array>
+    <key>StartCalendarInterval</key>
+    <array>
+        <dict>
+            <key>Hour</key>
+            <integer>9</integer>
+            <key>Minute</key>
+            <integer>0</integer>
+        </dict>
+        <dict>
+            <key>Hour</key>
+            <integer>12</integer>
+            <key>Minute</key>
+            <integer>0</integer>
+        </dict>
+        <dict>
+            <key>Hour</key>
+            <integer>15</integer>
+            <key>Minute</key>
+            <integer>0</integer>
+        </dict>
+        <dict>
+            <key>Hour</key>
+            <integer>18</integer>
+            <key>Minute</key>
+            <integer>0</integer>
+        </dict>
+        <dict>
+            <key>Hour</key>
+            <integer>21</integer>
+            <key>Minute</key>
+            <integer>0</integer>
+        </dict>
+    </array>
+    <key>RunAtLoad</key>
+    <true/>
+    <key>WorkingDirectory</key>
+    <string>YOUR_PROJECT_PATH_HERE</string>
+    <key>StandardOutPath</key>
+    <string>YOUR_PROJECT_PATH_HERE/logs/spotify_scheduler.log</string>
+    <key>StandardErrorPath</key>
+    <string>YOUR_PROJECT_PATH_HERE/logs/spotify_scheduler.error.log</string>
+    <key>EnvironmentVariables</key>
+    <dict>
+        <key>PATH</key>
+        <string>/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin</string>
+        <key>PYTHONPATH</key>
+        <string>YOUR_PROJECT_PATH_HERE</string>
+    </dict>
+</dict>
+</plist> 

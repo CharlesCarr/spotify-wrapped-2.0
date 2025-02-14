@@ -9,3 +9,6 @@ SPOTIFY_REDIRECT_URI = os.getenv("SPOTIFY_REDIRECT_URI")
 
 # Database configuration
 DATABASE_URL = "sqlite:///spotify_history.db"
+
+# Script path for scheduler
+SCRIPT_PATH = os.getenv("SCRIPT_PATH")

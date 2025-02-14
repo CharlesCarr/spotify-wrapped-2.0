@@ -33,3 +33,9 @@ build/
 
 # Logs
 *.log
+
+# Local run
+local_run.md
+
+# Logs
+/logs/*

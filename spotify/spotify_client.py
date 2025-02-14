@@ -3,10 +3,12 @@ from spotipy.oauth2 import SpotifyOAuth
 from config.config import SPOTIFY_CLIENT_ID, SPOTIFY_CLIENT_SECRET, SPOTIFY_REDIRECT_URI
 from datetime import datetime, timezone
 from models.track import Track
+import logging
 
 
 class SpotifyClient:
     def __init__(self):
+        self.logger = logging.getLogger(__name__)
         self.sp = spotipy.Spotify(
             auth_manager=SpotifyOAuth(
                 client_id=SPOTIFY_CLIENT_ID,
@@ -27,8 +29,10 @@ class SpotifyClient:
                 ),
             )
         )
+        self.logger.info("SpotifyClient initialized successfully")
 
     def get_recent_tracks(self, limit=50):
+        self.logger.info(f"Fetching {limit} recent tracks")
         results = self.sp.current_user_recently_played(limit=limit)
         tracks_with_timestamps = []
 
@@ -46,8 +50,8 @@ class SpotifyClient:
                 try:
                     audio_features = self.sp.audio_features([track["id"]])[0] or {}
                 except Exception as e:
-                    print(
-                        f"Could not get audio features for {track['name']}, continuing without them"
+                    self.logger.warning(
+                        f"Could not get audio features for {track['name']}: {str(e)}"
                     )
                     audio_features = {}
 
@@ -77,10 +81,10 @@ class SpotifyClient:
                 )
 
                 tracks_with_timestamps.append((track_data, played_at))
-                print(f"Successfully processed track: {track['name']}")
+                self.logger.info(f"Successfully processed track: {track['name']}")
 
             except Exception as e:
-                print(f"Error processing track {track['name']}: {str(e)}")
+                self.logger.error(f"Error processing track {track['name']}: {str(e)}")
                 continue
 
         return tracks_with_timestamps
